@@ -2,6 +2,7 @@
 import LoadingPage from "@/components/loadingPage";
 import Header from "@/components/header";
 import MidContent from "@/components/midContent";
+import Footer from "@/components/footer";
 import { Employee } from "@/models/Employee";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -38,6 +39,8 @@ export default function Home() {
           <Header />
 
           <MidContent employeeList={employeeList}/>
+
+          <Footer />
         </Container>
         :
         <LoadingPage />
