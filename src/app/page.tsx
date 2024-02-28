@@ -1,6 +1,7 @@
 "use client";
-import Header from "@/components/header";
 import LoadingPage from "@/components/loadingPage";
+import Header from "@/components/header";
+import MidContent from "@/components/midContent";
 import { Employee } from "@/models/Employee";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -16,6 +17,7 @@ export default function Home() {
         const response = await axios.get("http://localhost:3000/employees");
         setEmployeeList(response.data);
 
+        //Tirar depois
         setTimeout(() => {
           setShowPage(true);
         }, 2000)
@@ -34,6 +36,8 @@ export default function Home() {
         ?
         <Container>
           <Header />
+
+          <MidContent employeeList={employeeList}/>
         </Container>
         :
         <LoadingPage />
@@ -43,4 +47,10 @@ export default function Home() {
 }
 
 //Styled Components
-const Container = styled.main``;
+const Container = styled.main`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
