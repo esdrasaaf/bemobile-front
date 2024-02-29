@@ -9,7 +9,6 @@ export default function MidContent(props: EmployeeListProps) {
   const { employeeList } = props;
   const [dataSearch, setDataSearch] = useState("");
   const [newEmployeeList, setNewEmployeeList] = useState(employeeList);
-  const [inputStats, setInputStatus] = useState(true);
   const searchIcon = require("../assets/magnifierIcon.svg");
   const excludeIcon = require("../assets/excludeIcon.svg");
 
@@ -81,25 +80,20 @@ export default function MidContent(props: EmployeeListProps) {
               setDataSearch(e.target.value);
               filterEmployees(e.target.value);
             }}
-            disabled={inputStats}
             value={dataSearch}
           />
 
           <button type="submit">
-            {inputStats ? (
+            { dataSearch === "" ? (
               <Image
                 src={searchIcon}
                 alt="search glass"
-                onClick={() => {
-                  setInputStatus(false);
-                }}
               />
             ) : (
               <Image
                 src={excludeIcon}
                 alt="search glass"
                 onClick={() => {
-                  setInputStatus(true);
                   setDataSearch("");
                 }}
               />

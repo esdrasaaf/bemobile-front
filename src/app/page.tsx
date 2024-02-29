@@ -17,11 +17,7 @@ export default function Home() {
       try {
         const response = await axios.get("http://localhost:3000/employees");
         setEmployeeList(response.data);
-
-        //Tirar depois
-        setTimeout(() => {
-          setShowPage(true);
-        }, 2000)
+        setShowPage(true);
       } catch (error) {
         console.log(error);
       }
