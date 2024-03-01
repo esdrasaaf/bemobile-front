@@ -3,7 +3,7 @@ import Image from "next/image";
 import { EmployeeListProps } from "@/models/Employee";
 import ItemList from "./itemList";
 import TableSummary from "./tableSummary";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 
 export default function MidContent(props: EmployeeListProps) {
   const { employeeList } = props;
@@ -14,7 +14,11 @@ export default function MidContent(props: EmployeeListProps) {
 
   //Largura para mudar no mediaquery é 1650px
   function filterEmployees(value: string) {
-    const formatedDataSearch = value.toString().toLowerCase().normalize("NFD").replace(/[^a-zA-Z0-9]/g, "");
+    const formatedDataSearch = value
+      .toString()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[^a-zA-Z0-9]/g, "");
     const dataSearchLength = formatedDataSearch.length;
 
     const employeeArr = employeeList.filter((employee) => {
@@ -84,11 +88,8 @@ export default function MidContent(props: EmployeeListProps) {
           />
 
           <button type="submit">
-            { dataSearch === "" ? (
-              <Image
-                src={searchIcon}
-                alt="search glass"
-              />
+            {dataSearch === "" ? (
+              <Image src={searchIcon} alt="search glass" />
             ) : (
               <Image
                 src={excludeIcon}
@@ -103,24 +104,31 @@ export default function MidContent(props: EmployeeListProps) {
       </TitleAndSearch>
 
       <InfoTable>
-        <TableSummary></TableSummary>
+        <TableSummary />
 
-        <EmployeeList>
-          {(dataSearch === "" ? employeeList : newEmployeeList).map(
-            (e, idx) => {
-              return (
-                <ItemList
-                  key={idx}
-                  image={e.image}
-                  name={e.name}
-                  job={e.job}
-                  admissionDate={e.admission_date}
-                  phone={e.phone}
-                />
-              );
-            }
-          )}
-        </EmployeeList>
+        {newEmployeeList.length === 0 ? (
+          <span className="message">
+            Não encontramos nenhum funcionário com esta identificação no banco
+            de dados! :(
+          </span>
+        ) : (
+          <EmployeeList>
+            {(dataSearch === "" ? employeeList : newEmployeeList).map(
+              (e, idx) => {
+                return (
+                  <ItemList
+                    key={idx}
+                    image={e.image}
+                    name={e.name}
+                    job={e.job}
+                    admissionDate={e.admission_date}
+                    phone={e.phone}
+                  />
+                );
+              }
+            )}
+          </EmployeeList>
+        )}
       </InfoTable>
     </Container>
   );
@@ -128,13 +136,14 @@ export default function MidContent(props: EmployeeListProps) {
 
 //Styled Components
 const Container = styled.main`
-  margin-top: 40px;
-  width: 60%;
+  max-width: 1050px;
+  width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  padding: 40px 25px;
 `;
 
 const TitleAndSearch = styled.section`
@@ -151,6 +160,15 @@ const TitleAndSearch = styled.section`
     line-height: 28px;
     letter-spacing: 0px;
     text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 30px;
+    height: fit-content;
+    width: 100%;
+    align-items: start;
+    margin-bottom: 30px;
   }
 `;
 
@@ -194,11 +212,51 @@ const SearchArea = styled.div`
       width: 25px;
     }
   }
+
+  //Responsive Layout
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const InfoTable = styled.section`
   width: 100%;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .message {
+    text-align: center;
+    width: 60%;
+    margin-top: 40px;
+    color: #9e9e9e;
+    font-weight: 500;
+    font-size: 20px;
+
+    //Responsive Layout
+    @media (max-width: 768px) {
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #9e9e9e;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
 `;
 
 const EmployeeList = styled.ul`
@@ -206,5 +264,13 @@ const EmployeeList = styled.ul`
   flex-direction: column;
   gap: 1px;
   width: 100%;
-  height: fit-content;
+  max-height: 487px;
+  overflow-y: scroll;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+
+  //Responsive Layout
+  @media (max-width: 768px) {
+    overflow-y: visible;
+    max-height: none;
+  }
 `;

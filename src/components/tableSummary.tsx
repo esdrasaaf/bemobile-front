@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export default function TableSummary() {
+  // media query é em 1650px
+
   return (
     <Container>
       <span>Foto</span>
@@ -8,6 +10,7 @@ export default function TableSummary() {
       <span>Cargo</span>
       <span>Data de Admissão</span>
       <span>Telefone</span>
+      <div className="whiteDot"></div>
     </Container>
   );
 }
@@ -32,13 +35,13 @@ const Container = styled.div`
     left: 17%;
   }
   :nth-child(3) {
-    left: 40%;
+    left: 39.35%;
   }
   :nth-child(4) {
-    left: 58%;
+    left: 56.8%;
   }
   :nth-child(5) {
-    left: 82%;
+    left: 81%;
   }
 
   span {
@@ -50,5 +53,39 @@ const Container = styled.div`
     letter-spacing: 0em;
     text-align: left;
     color: rgba(255, 255, 255, 1);
+  }
+
+  .whiteDot {
+    display: none;
+    background-color: white;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+  }
+
+  //Responsive Layout
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    padding: 0px 30px 0px 25px;
+    box-sizing: border-box;
+
+    .whiteDot {
+      display: initial;
+      margin-left: 15px;
+    }
+
+    span {
+      position: initial;
+    }
+
+    :nth-child(3) {
+      display: none;
+    }
+    :nth-child(4) {
+      display: none;
+    }
+    :nth-child(5) {
+      display: none;
+    }
   }
 `;

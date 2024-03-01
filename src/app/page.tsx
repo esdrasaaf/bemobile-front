@@ -28,19 +28,17 @@ export default function Home() {
 
   return (
     <>
-      {
-        showPage
-        ?
+      {showPage ? (
         <Container>
           <Header />
 
-          <MidContent employeeList={employeeList}/>
+          <MidContent employeeList={employeeList} />
 
           <Footer />
         </Container>
-        :
+      ) : (
         <LoadingPage />
-      }
+      )}
     </>
   );
 }
