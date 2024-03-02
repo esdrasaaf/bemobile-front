@@ -7,8 +7,6 @@ Este repositório é dedicado ao teste front-end criado pela BeMobile e desenvol
 
 O objetivo deste teste é desenvolver uma interface que liste todos os funcionários de uma determinada empresa em uma tabela, incluindo os campos de foto, nome, cargo, data de admissão e telefone.
 
-## Importante!
-
 Os dados utilizados são provenientes de uma API simulada utilizando json-server, fornecida pela BeMobile. O desafio e a API podem ser visitados por este link.
 ## Stack utilizada
 
