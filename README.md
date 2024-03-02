@@ -19,8 +19,6 @@ fotos aqui
 
 
 ## Rodando localmente (Front-End)
-Para que carregue a lista de funcionários e seja possível testar suas funcionalidades, a API simulada deve estar rodando no back-end em conjunto com o front-end localmente.
-
 Clone o projeto
 
 ```bash
@@ -45,6 +43,8 @@ Inicie o projeto
   npm run dev
 ```
 
+### Importante!
+É necessário deixar o json-server rodando no terminal para que os dados sejam visualizados no projeto.
 
 ## Rodando localmente (Back-End)
 
@@ -59,9 +59,9 @@ Inicie o projeto
 
 - Inicie a estrutura e o desenvolvimento do projeto.
 
+### Importante!
 É necessário deixar o json-server rodando no terminal para que os dados sejam visualizados no projeto.
 
-### Importante!
 Caso você tenha problemas com o json-server, tente rodá-lo com `npx json-server db.json` ou 
 com `yarn json-server <path>/db.json`, em que `<path>` é o caminho completo até o diretório em que o arquivo db.json está localizado. Se mesmo assim não funcionar, busque ajuda na web.
 ## Licença
