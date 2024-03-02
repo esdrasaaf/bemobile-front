@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Teste Técnico (Front End) - BeMobile
 
-First, run the development server:
+Olá, seja bem-vindo! 😁
+
+Este repositório é dedicado ao teste front-end criado pela BeMobile e desenvolvido por mim!
+
+O objetivo deste teste é desenvolver uma interface que liste todos os funcionários de uma determinada empresa em uma tabela, incluindo os campos de foto, nome, cargo, data de admissão e telefone.
+
+## Importante!
+
+Os dados utilizados são provenientes de uma API simulada utilizando json-server, fornecida pela BeMobile. O desafio e a API podem ser visitados por este link.
+## Stack utilizada
+
+**Front-end:** React e NextJS(TypeScript)
+
+**Bibliotecas:** Styled-Components, react-loader-spinner e axios
+## Screenshots
+
+fotos aqui
+
+
+## Rodando localmente (Front-End)
+Para que carregue a lista de funcionários e seja possível testar suas funcionalidades, a API simulada deve estar rodando no back-end em conjunto com o front-end localmente.
+
+Clone o projeto
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/esdrasaaf/bemobile-front
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Entre no diretório do projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd bemobile-front
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Instale as dependências
 
-## Learn More
+```bash
+  npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Inicie o projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Rodando localmente (Back-End)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Caso você não tenha, instale o pacote [json-server](https://github.com/typicode/json-server);
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Clone este repositório do GitHub em sua máquina: 
+```bash
+  [https://github.com/BeMobile/desafio-front-end](https://github.com/BeMobile/desafio-front-end);
+```
+
+- Entre na pasta do projeto, em sua máquina, e, por meio da linha de comando, execute o comando `json-server --watch db.json`, para consumir a API simulada;
+
+- Inicie a estrutura e o desenvolvimento do projeto.
+
+É necessário deixar o json-server rodando no terminal para que os dados sejam visualizados no projeto.
+
+### Importante!
+Caso você tenha problemas com o json-server, tente rodá-lo com `npx json-server db.json` ou 
+com `yarn json-server <path>/db.json`, em que `<path>` é o caminho completo até o diretório em que o arquivo db.json está localizado. Se mesmo assim não funcionar, busque ajuda na web.
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
