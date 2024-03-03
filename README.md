@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Teste Técnico (Front End) - BeMobile
 
-First, run the development server:
+Olá, seja bem-vindo! 😁
+
+Este repositório é dedicado ao teste front-end criado pela BeMobile e desenvolvido por mim!
+
+O objetivo deste teste é desenvolver uma interface que liste todos os funcionários de uma determinada empresa em uma tabela, incluindo os campos de foto, nome, cargo, data de admissão e telefone.
+
+Os dados utilizados são provenientes de uma API simulada utilizando json-server, fornecida pela BeMobile. O desafio e a API podem ser visitados por este <a href="https://github.com/BeMobile/desafio-front-end">link<a/>.
+## Stack utilizada
+
+**Front-end:** React e NextJS(TypeScript)
+
+**Bibliotecas:** Styled-Components, react-loader-spinner e axios
+
+## Layout
+### Desktop
+<img src="https://i.ibb.co/frNKgS3/Captura-de-tela-de-2024-03-02-18-45-13.png" alt="Captura-de-tela-de-2024-03-02-18-45-13" border="0" />
+<img src="https://i.ibb.co/VDRTsrr/Captura-de-tela-de-2024-03-02-18-42-38.png" alt="Captura-de-tela-de-2024-03-02-18-42-38" border="0" />
+<img src="https://i.ibb.co/n16PyV1/Captura-de-tela-de-2024-03-02-18-43-04.png" alt="Captura-de-tela-de-2024-03-02-18-43-04" border="0" />
+
+### Mobile
+<div>
+  <img src="https://i.ibb.co/R7crMQy/Captura-de-tela-de-2024-03-03-00-19-32.png" alt="Captura-de-tela-de-2024-03-03-00-19-32" border="0">
+  <img src="https://i.ibb.co/w0w0bYN/Captura-de-tela-de-2024-03-03-00-22-08.png" alt="Captura-de-tela-de-2024-03-03-00-22-08" border="0">
+</div>
+<div>
+  <img src="https://i.ibb.co/KWPxgwp/Captura-de-tela-de-2024-03-03-00-22-02.png" alt="Captura-de-tela-de-2024-03-03-00-22-02" border="0">
+  <img src="https://i.ibb.co/HHQPVCg/Captura-de-tela-de-2024-03-03-00-20-30.png" alt="Captura-de-tela-de-2024-03-03-00-20-30" border="0">
+</div>
+
+## Rodando localmente (Front-End)
+Clone o projeto
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/esdrasaaf/bemobile-front
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Entre no diretório do projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd bemobile-front
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Instale as dependências
 
-## Learn More
+```bash
+  npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Inicie o projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Importante!
+É necessário deixar o json-server rodando no terminal para que os dados sejam visualizados no projeto.
 
-## Deploy on Vercel
+## Rodando localmente (Back-End)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Caso você não tenha, instale o pacote [json-server](https://github.com/typicode/json-server);
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Clone este repositório do GitHub em sua máquina: 
+```bash
+  https://github.com/BeMobile/desafio-front-end
+```
+
+- Entre na pasta do projeto, em sua máquina, e, por meio da linha de comando, execute o comando `json-server --watch db.json`, para consumir a API simulada;
+
+- Inicie a estrutura e o desenvolvimento do projeto.
+
+### Importante!
+É necessário deixar o json-server rodando no terminal para que os dados sejam visualizados no projeto.
+
+Caso você tenha problemas com o json-server, tente rodá-lo com `npx json-server db.json` ou 
+com `yarn json-server <path>/db.json`, em que `<path>` é o caminho completo até o diretório em que o arquivo db.json está localizado. Se mesmo assim não funcionar, busque ajuda na web.
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
