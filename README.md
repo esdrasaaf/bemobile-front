@@ -64,7 +64,7 @@ Inicie o projeto
 
 - Clone este repositório do GitHub em sua máquina: 
 ```bash
-  [https://github.com/BeMobile/desafio-front-end](https://github.com/BeMobile/desafio-front-end);
+  https://github.com/BeMobile/desafio-front-end
 ```
 
 - Entre na pasta do projeto, em sua máquina, e, por meio da linha de comando, execute o comando `json-server --watch db.json`, para consumir a API simulada;
