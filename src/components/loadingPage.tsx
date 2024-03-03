@@ -32,4 +32,12 @@ const Container = styled.main`
   justify-content: center;
   align-items: center;
   gap: 70px;
+
+  //Responsive Layout
+  @media (max-width: 768px) {
+    img {
+      width: 309px;
+      height: 245px;
+    }
+  }
 `;

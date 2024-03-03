@@ -12,7 +12,6 @@ export default function MidContent(props: EmployeeListProps) {
   const searchIcon = require("../assets/magnifierIcon.svg");
   const excludeIcon = require("../assets/excludeIcon.svg");
 
-  //Largura para mudar no mediaquery é 1650px
   function filterEmployees(value: string) {
     const formatedDataSearch = value
       .toString()
@@ -22,50 +21,32 @@ export default function MidContent(props: EmployeeListProps) {
     const dataSearchLength = formatedDataSearch.length;
 
     const employeeArr = employeeList.filter((employee) => {
-      if (
-        employee.name
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[^a-zA-Z0-9]/g, "")
-          .slice(0, dataSearchLength) === formatedDataSearch
-      ) {
-        return (
-          employee.name
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[^a-zA-Z0-9]/g, "")
-            .slice(0, dataSearchLength) === formatedDataSearch
-        );
+      const formatedName = employee.name
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .slice(0, dataSearchLength);
+
+      const formatedJob = employee.job
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .slice(0, dataSearchLength);
+
+      const formatedPhone = employee.phone
+        .toString()
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .slice(0, dataSearchLength);
+
+      if (formatedName === formatedDataSearch)
+        return formatedName === formatedDataSearch;
+
+      if (formatedJob === formatedDataSearch) {
+        return formatedJob === formatedDataSearch;
       }
 
-      if (
-        employee.job
-          .toLowerCase()
-          .replace(/[^a-zA-Z0-9]/g, "")
-          .slice(0, dataSearchLength) === formatedDataSearch
-      ) {
-        return (
-          employee.job
-            .toLowerCase()
-            .replace(/[^a-zA-Z0-9]/g, "")
-            .slice(0, dataSearchLength) === formatedDataSearch
-        );
-      }
-
-      if (
-        employee.phone
-          .toString()
-          .toLowerCase()
-          .replace(/[^a-zA-Z0-9]/g, "")
-          .slice(0, dataSearchLength) === formatedDataSearch
-      ) {
-        return (
-          employee.phone
-            .toString()
-            .toLowerCase()
-            .replace(/[^a-zA-Z0-9]/g, "")
-            .slice(0, dataSearchLength) === formatedDataSearch
-        );
+      if (formatedPhone === formatedDataSearch) {
+        return formatedPhone === formatedDataSearch;
       }
     });
 
@@ -96,6 +77,7 @@ export default function MidContent(props: EmployeeListProps) {
                 alt="search glass"
                 onClick={() => {
                   setDataSearch("");
+                  setNewEmployeeList(employeeList);
                 }}
               />
             )}
@@ -106,27 +88,25 @@ export default function MidContent(props: EmployeeListProps) {
       <InfoTable>
         <TableSummary />
 
-        {newEmployeeList.length === 0 ? (
+        {newEmployeeList.length === 0 && dataSearch !== "" ? (
           <span className="message">
             Não encontramos nenhum funcionário com esta identificação no banco
             de dados! :(
           </span>
         ) : (
           <EmployeeList>
-            {(dataSearch === "" ? employeeList : newEmployeeList).map(
-              (e, idx) => {
-                return (
-                  <ItemList
-                    key={idx}
-                    image={e.image}
-                    name={e.name}
-                    job={e.job}
-                    admissionDate={e.admission_date}
-                    phone={e.phone}
-                  />
-                );
-              }
-            )}
+            {newEmployeeList.map((e, idx) => {
+              return (
+                <ItemList
+                  key={idx}
+                  image={e.image}
+                  name={e.name}
+                  job={e.job}
+                  admissionDate={e.admission_date}
+                  phone={e.phone}
+                />
+              );
+            })}
           </EmployeeList>
         )}
       </InfoTable>
